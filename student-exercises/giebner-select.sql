@@ -33,3 +33,40 @@ SELECT * FROM band WHERE name LIKE '% and %';
 SELECT * FROM individual WHERE firstName LIKE '___';
 
 SELECT * FROM band WHERE name LIKE '%s';
+
+SELECT * FROM band WHERE name LIKE '%[irv]%';
+
+# baseball
+
+USE baseball;
+
+SELECT * FROM player;
+SELECT * FROM team;
+SELECT * FROM batting;
+SELECT * FROM roster;
+
+SELECT team.teamName
+, batting.teamID
+, batting.rank
+, batting.battingAvg
+  FROM team
+  INNER JOIN batting on batting.teamID = team.ID;
+  
+  SELECT player.firstName, player.lastName, batting.battingAvg FROM batting
+    INNER JOIN player ON batting.playerID = player.ID
+    WHERE batting.battingAVG > 299;
+    
+    SELECT player.lastName
+    , player.firstName
+    , player.birthplaceCountry
+    , team.teamName
+    FROM player
+      INNER JOIN roster ON roster.playerID = player.ID
+      INNER JOIN team ON roster.teamID = team.ID
+      WHERE team.teamName = 'Boston Red Sox';
+    
+SELECT * FROM vteamRoster;    
+
+DESCRIBE vteamRoster;
+
+SHOW CREATE VIEW vteamRoster;
