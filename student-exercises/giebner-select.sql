@@ -16,4 +16,8 @@ SELECT ID, lastName From individual WHERE deceasedDate is NOT NULL;
 
 SELECT ID, lastname, birthDate FROM individual WHERE Year(birthDate) > 1940;
 
-SELECT * FROM individual WHERE ID IN (1, 3, 5, 7, 19);
+# Translating requirements into SQL Statements
+
+SELECT 	name, genre, isTogether FROM band WHERE  genre = 'alternative' AND isTogether = 0;
+
+SELECT id, name FROM band WHERE id = 4;
