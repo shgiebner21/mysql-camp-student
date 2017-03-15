@@ -70,3 +70,24 @@ SELECT * FROM vteamRoster;
 DESCRIBE vteamRoster;
 
 SHOW CREATE VIEW vteamRoster;
+
+# More fun with Joins
+USE baseball;
+
+SELECT player.*, batting.* FROM player
+  LEFT JOIN batting ON batting.playerID = player.ID;
+  
+SELECT team.*, roster.* FROM roster
+    RIGHT JOIN team ON roster.teamID = team.ID;
+    
+SELECT roster.* FROM roster
+  INNER JOIN player ON roster.playerID = player.ID
+  LEFT JOIN team ON roster.teamID = team.ID;
+  
+  SELECT DISTINCT team.* FROM team
+    INNER JOIN roster ON roster.teamID = team.ID
+    LEFT JOIN player ON roster.playerID = player.ID;
+    
+    SELECT v.position, COUNT(v.position) FROM vteamRoster as v
+    GROUP BY v.position;
+    
