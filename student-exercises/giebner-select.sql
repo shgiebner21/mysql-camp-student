@@ -87,7 +87,12 @@ SELECT roster.* FROM roster
   SELECT DISTINCT team.* FROM team
     INNER JOIN roster ON roster.teamID = team.ID
     LEFT JOIN player ON roster.playerID = player.ID;
+    alter
     
+ # query 3 
+ SELECT v.* FROM vteamRoster as v;
+ 
+# query 4
     SELECT v.position, COUNT(v.position) FROM vteamRoster as v
     GROUP BY v.position;
     
