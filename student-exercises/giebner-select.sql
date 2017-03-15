@@ -89,6 +89,15 @@ SELECT roster.* FROM roster
     LEFT JOIN player ON roster.playerID = player.ID;
     alter
     
+# query 1
+SELECT v.* FROM vteamRoster as v
+INNER JOIN batting ON v.playerID = batting.playerID;    
+    
+# query 2
+SELECT divisionName, AVG(v.weight) FROM vteamRoster as v
+INNER JOIN batting ON v.playerID = batting.playerID
+GROUP BY divisionName;  
+ 
  # query 3 
  SELECT v.* FROM vteamRoster as v;
  
